@@ -60,7 +60,7 @@
 
                     <a href="{% url 'contact' %}" class="nav-item nav-link">Contact Us</a>
                 </div>
-                <a href="" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">Login/Register</a>
+               <!-- <a href="" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">Login/Register</a>-->
             </div>
         </nav>
         <!-- Navbar End -->
@@ -73,7 +73,8 @@
                 <nav aria-label="breadcrumb animated slideInDown">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
-                        <li class="breadcrumb-item text-white active" aria-current="page"></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Hiring Registration</li>
+                          <li class="breadcrumb-item"><a href="{% url 'dashboard_client' %}">Dashboard</a></li>
                     </ol>
                 </nav>
             </div>
@@ -82,14 +83,14 @@
       <div class="container-xxl py-5">
             <div class="container">
                 <div class="row g-5 align-items-center">
-                  <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                  <div class="col-lg-6 wow fadeIn bg-transparent" data-wow-delay="0.5s">
                             <div class="h-100 d-flex flex-column justify-content-center p-5">
-                                <h1 class="mb-4">Register For Our Services</h1>
-                                <p class="mb-4 text-dark">Register with Thienry Book Exchange<br>To access our best reliable books services<br class="text-dark">If you already have an account login here!!!</p>
-                                <a class="btn btn-primary py-3 px-5" href="{% url 'hire' %}">Login Here</a>
+                                <h1 class="mb-4">Register For Book Hiring</h1>
+                                <p class="mb-4 text-dark">Registering For Book Hiring<br>Links you with the customers in need of the book(s) for a period of time.<br class="text-dark">Register Only if you have the book to hire.</p>
+                                <!--<a class="btn btn-primary py-3 px-5" href="{% url 'hire' %}">Login Here</a>-->
                             </div>
                         </div>
-                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="col-lg-6 wow fadeIn bg-info" data-wow-delay="0.1s">
                      <h1 class="bg-dark text-info">Register For Book Hiring</h1>
     {% if submitted %}
         Your Book Exchange Request have been Received!!
@@ -102,28 +103,9 @@
     <button type="submit" class="btn">Submit</button>
         </form>
 
-<a href="">Login Here</a>
-
     {% endif %}
 
-                       <!--<center>
-<h1 class="bg-dark text-info ">Register Here</h1>
-    {% if submitted %}
-        Your Book Exchange Request have been Received!!
 
-    {% else %}
-        <form action="" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-
-            <a href="{% url 'dashboard_client' %}" ><button type="submit" class="btn" >Submit</button></a>
-        </form>
-
-<a href="{% url 'books_list' %}">Login Here</a>-
-
-    {% endif %}
-
-    </center>-->
                     </div>
                 </div>
             </div>

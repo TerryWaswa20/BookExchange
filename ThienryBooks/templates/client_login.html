@@ -86,26 +86,22 @@
                             <div class="h-100 d-flex flex-column justify-content-center p-5">
                                 <h1 class="mb-4">Register For Our Services</h1>
                                 <p class="mb-4 text-dark">Register with Thienry Book Exchange<br>To access our best reliable books services<br class="text-dark">If you already have an account login here!!!</p>
-                                <a class="btn btn-primary py-3 px-5" href="{% url 'hire' %}">Login Here</a>
+                                <a class="btn btn-primary py-3 px-5" href="#">Login Here</a>
                             </div>
                         </div>
                     <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                     <h1 class="bg-dark text-info">Register For Book Hiring</h1>
-                    <form>
-                        {% csrf_token %}
-                        <hr>
-                         <label for="Username"><b>Username</b>
-                         <input type="text" placeholder="Enter Username Username" name="username" id="username" required>
-                         </label>
-                         <label for="Password"><b>Password</b>
-                         <input type="password" placeholder="Enter Password" name="password" id="password" required>
-                         </label>
-                        <hr>
+                     <h1 class="bg-dark text-info">LOGIN</h1>
+                        <form action="{% url 'dashboard_client' %}" method="post">
+                            {% csrf_token %}
+                            <label for="username">Username</label>
+                                <input type="text" id="username" name="username" required><br><br>
 
-            <a href="{% url 'dashboard_client' %}" ><button type="submit" class="btn" >Submit</button></a>
-        </form>
+                             <label for="password">Password</label>
+                                <input type="password" id="password" name="password" required><br>
 
-<!--<a href="{% url 'books_list' %}">Login Here</a>-->
+                            <input type="submit" value="Login">
+
+                        </form>
 
                     </div>
                 </div>

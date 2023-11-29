@@ -13,6 +13,14 @@
     z-index: 99;
 }
 
+.upload_book {
+    max-width: 50px;
+    max-height: 50px;
+    width: auto;
+    height: auto;
+
+}
+
 
 /*** Spinner ***/
 #spinner {
@@ -500,4 +508,13 @@ h6,
     margin-right: 0;
     padding-right: 0;
     border-right: none;
+}
+
+.book_image {
+    max-width: 100%;
+    height: auto;
+}
+.upload_book {
+    max-width: 100%;
+    height: auto;
 }

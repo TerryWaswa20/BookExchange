@@ -1,58 +1,38 @@
 from django.shortcuts import render, redirect
-from ThienryBooks.forms import HiringForm, PurchaseForm,ParentForm
-from django.http import HttpResponseRedirect
-from ThienryBooks.models import Hiring
-from django.contrib.auth.models import User,auth
+from ThienryBooks.forms import HiringForm, ExchangeForm, ParentForm
+from ThienryBooks.models import Hiring, Exchange
 
 
 def parent(request):
-    submitted = False
     if request.method == "POST":
-        form = ParentForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return render(request, "client_login.html")
-        else:
-            form = ParentForm
-            if 'submitted' in request.GET:
-                submitted = True
-            return render(request, 'parent_form.html', {'form': form, 'submitted': submitted})
-
-    form = ParentForm
-    return render(request, 'parent_form.html', {'form': form})
-
-
-def login_client(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = auth.authenticate(username=username, password=password)
-
-        if user is not None:
-            auth.login(request, user)
-            return redirect('dashboard_client')
-    return render(request, "client_login.html")
+        user_form = ParentForm(request.POST)
+        if user_form.is_valid():
+            user_form.save()
+            return redirect('c_login')
+    else:
+        user_form = ParentForm
+    return render(request, 'parent_form.html', {'user_form': user_form})
 
 
 def dashboard(request):
     return render(request, "client_dashboard.html")
 
 
-def purchase(request):
+def exchange(request):
     submitted = False
     if request.method == "POST":
-        form = PurchaseForm(request.POST)
+        form = ExchangeForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/purchase?submitted=True')
+            return render(request, "client_dashboard.html")
     else:
-        form = PurchaseForm
+        form = ExchangeForm
         if 'submitted' in request.GET:
             submitted = True
-        return render(request, 'bookshop_form.html', {'form': form, 'submitted': submitted})
+        return render(request, 'exchangeform.html', {'form': form, 'submitted': submitted})
 
-    form = PurchaseForm
-    return render(request, 'bookshop_form.html', {'form': form})
+    form = ExchangeForm
+    return render(request, 'exchangeform.html', {'form': form})
 
 
 def hire(request):
@@ -91,4 +71,13 @@ def services(request):
 
 def contact(request):
     return render(request, "contact.html")
+
+
+def login_client(request):
+    return render(request, "client_login.html")
+
+
+def exchange_list(request):
+    for_exchange = Exchange.objects.all()
+    return render(request, "exchange_list.html", {'for_exchange': for_exchange})
 

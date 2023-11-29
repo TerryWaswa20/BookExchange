@@ -59,7 +59,6 @@
 
                     <a href="{% url 'contact' %}" class="nav-item nav-link">Contact Us</a>
                 </div>
-                <a href="" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">Login/Register</a>
             </div>
         </nav>
         <!-- Navbar End -->
@@ -72,9 +71,11 @@
                 <nav aria-label="breadcrumb animated slideInDown">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
-                        <li class="breadcrumb-item text-white active" aria-current="page">Dashboard</li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Books For Hire</li>
+                        <li class="breadcrumb-item"><a href="{% url 'dashboard_client' %}">Dashboard</a></li>
                     </ol>
                 </nav>
+                 <a href="{% url 'hire' %}" class="btn btn-primary rounded-pill px-3 d-none d-lg-block col-lg-3">Register For Book Hiring</a>
             </div>
         </div>
         <!-- Page end-->
@@ -82,20 +83,25 @@
 <div class="container-xxl py-5">
     <div class="container">
         <div class="row g-5 align-items-center">
-            <div class="col-lg-5 wow fadeIn" data-wow-delay="0.1s"></div>
+        <form method="get" action="">
+            <input type="text" name="search" placeholder="Search Author"><button type="submit">Search</button>
+        </form>
             {% for books in show_books%}
-    <ul>
-    <li>{{ books.official_name }}</li>
-    <li>{{ books.location }}</li>
-    <li>{{ books.contact }}</li>
-    </ul>
+                  <div class="col-sm-3">
+                <p><b>OFFICIAL NAME:</b> {{ books.official_name }}<br><b>CONTACT:</b> {{ books.contact }}<br><b>OWNER LOCATION: </b>{{ books.location }}<br><b>HIRE PRICE:</b>{{ books.price}}</p>
+
+
     <br>
     {% if books.book_image %}
-        <img src="{{ books.book_image.url }}" alt="book_image" class="img-thumbnail" height="50px" width="50px">
+        <img src="{{ books.book_image.url }}" alt="book_image" class="book_image" height="100%" width="80%">
     {% endif %}
+                <br>
+                  <br>
+                <b>DESCRIPTION:</b> {{ books.description}}
+                  </div>
 {% endfor %}
-        </div>
     </div>
+</div>
 </div>
  <!-- Footer Start -->
         <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">

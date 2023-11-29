@@ -59,7 +59,6 @@
 
                     <a href="{% url 'contact' %}" class="nav-item nav-link">Contact Us</a>
                 </div>
-                <a href="" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">Login/Register<!--<i class="fa fa-arrow-right ms-3"></i>--></a>
             </div>
         </nav>
         <!-- Navbar End -->
@@ -71,8 +70,7 @@
                 <h1 class="display-2 text-white animated slideInDown mb-4">About Us</h1>
                 <nav aria-label="breadcrumb animated slideInDown">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                      <!--  <li class="breadcrumb-item"><a href="#">Pages</a></li>-->
+                        <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
                         <li class="breadcrumb-item text-white active" aria-current="page">About Us</li>
                     </ol>
                 </nav>
@@ -121,9 +119,9 @@
                         </div>
                         <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                             <div class="h-100 d-flex flex-column justify-content-center p-5">
-                                <h1 class="mb-4">Register your Bookshop</h1>
-                                <p class="mb-4 text-dark">Register you Bookshop with us.<br>We give you a chance to interact with customers around and far from you. Your Bookshop must be legal as per the law.</p>
-                                <a class="btn btn-primary py-3 px-5" href="{% url 'hire' %}">Register Now<!--<i class="fa fa-arrow-right ms-2"></i>--></a>
+                                <h1 class="mb-4">Register With Us</h1>
+                                <p class="mb-4 text-dark">Register you with us.<br>To interact and experience our best book services Today.</p>
+                                <a class="btn btn-primary py-3 px-5" href="{% url 'parent' %}">Register Now<!--<i class="fa fa-arrow-right ms-2"></i>--></a>
                             </div>
                         </div>
                     </div>

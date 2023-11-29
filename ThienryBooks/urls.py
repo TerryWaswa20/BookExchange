@@ -28,9 +28,11 @@ urlpatterns = [
     path('contact', views.contact, name='contact'),
     path('parent_form', views.parent, name='parent'),
     path('hiring', views.hire, name='hire'),
-    path('bookshop_form', views.purchase, name='purchase'),
     path('books_list', views.books_hire, name='books_list'),
     path('client_dashboard', views.dashboard, name='dashboard_client'),
-    path('client_login', views.login_client, name='c_login')
+    path('client_login', views.login_client, name='c_login'),
+    path('exchange_list', views.exchange_list, name='exchange_books'),
+    path('exchange_form', views.exchange, name='ex_form')
+
 
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
